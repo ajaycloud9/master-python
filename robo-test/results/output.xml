@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.9.6 on darwin)" generated="2024-05-10T12:43:49.993724" rpa="false" schemaversion="5">
+<suite id="s1" name="First-Test" source="/Users/ajaysingh/Desktop/Python/robo-test/first-test.robot">
+<test id="s1-t1" name="Test some basics of my calculator application" line="5">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Starting test</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-10T12:43:50.078251" elapsed="0.000556"/>
+</kw>
+<kw name="Verify app calculation">
+<msg time="2024-05-10T12:43:50.081258" level="FAIL">No keyword with name 'Verify app calculation' found.</msg>
+<arg>1 + 1</arg>
+<arg>2</arg>
+<status status="FAIL" start="2024-05-10T12:43:50.081156" elapsed="0.000210">No keyword with name 'Verify app calculation' found.</status>
+</kw>
+<kw name="Verify app calculation">
+<arg>14 + 8</arg>
+<arg>22</arg>
+<status status="NOT RUN" start="2024-05-10T12:43:50.083716" elapsed="0.000087"/>
+</kw>
+<kw name="Verify app calculation">
+<arg>14 - 8</arg>
+<arg>6</arg>
+<status status="NOT RUN" start="2024-05-10T12:43:50.085897" elapsed="0.000063"/>
+</kw>
+<kw name="Verify app calculation">
+<arg>8 - 14</arg>
+<arg>-6</arg>
+<status status="NOT RUN" start="2024-05-10T12:43:50.087923" elapsed="0.000050"/>
+</kw>
+<kw name="Verify app calculation">
+<arg>8 * 14</arg>
+<arg>112</arg>
+<status status="NOT RUN" start="2024-05-10T12:43:50.089882" elapsed="0.000048"/>
+</kw>
+<kw name="Verify app calculation">
+<arg>14 / 8</arg>
+<arg>1.75</arg>
+<status status="NOT RUN" start="2024-05-10T12:43:50.091888" elapsed="0.000074"/>
+</kw>
+<kw name="Verify app calculation">
+<arg>4 + 8 * 2 / 4</arg>
+<arg>8</arg>
+<status status="NOT RUN" start="2024-05-10T12:43:50.094314" elapsed="0.000085"/>
+</kw>
+<kw name="Verify app calculation">
+<arg>(4 + 8) * 2 / 4</arg>
+<arg>6</arg>
+<status status="NOT RUN" start="2024-05-10T12:43:50.096710" elapsed="0.000093"/>
+</kw>
+<status status="FAIL" start="2024-05-10T12:43:50.075446" elapsed="0.022004">No keyword with name 'Verify app calculation' found.</status>
+</test>
+<status status="FAIL" start="2024-05-10T12:43:49.997072" elapsed="0.101595"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="First-Test">First-Test</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-05-10T12:43:50.074343" level="ERROR">Error in file '/Users/ajaysingh/Desktop/Python/robo-test/first-test.robot' on line 2: Resource file '../resources/calculator_keyword.resource' does not exist.</msg>
+</errors>
+</robot>

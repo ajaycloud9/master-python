@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.9.6 on darwin)" generated="2024-05-10T12:46:23.754347" rpa="false" schemaversion="5">
+<suite id="s1" name="First-Test" source="/Users/ajaysingh/Desktop/Python/robo-test/first-test.robot">
+<test id="s1-t1" name="Test some basics of my calculator application" line="5">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Starting test</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-10T12:46:23.804809" elapsed="0.000476"/>
+</kw>
+<kw name="Verify app calculation" owner="calculator_keyword">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Calculating: ${term}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-10T12:46:23.806288" elapsed="0.000173"/>
+</kw>
+<kw name="Do Math" owner="calculator">
+<msg time="2024-05-10T12:46:23.806863" level="INFO">${actual} = 2</msg>
+<var>${actual}</var>
+<arg>${term}</arg>
+<doc>Interpret term as a mathematical expression
+and return the result</doc>
+<status status="PASS" start="2024-05-10T12:46:23.806593" elapsed="0.000297"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Calculated Result: ${actual}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-10T12:46:23.806997" elapsed="0.000162"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2024-05-10T12:46:23.807649" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-05-10T12:46:23.807266" elapsed="0.001272"/>
+</kw>
+<arg>1 + 1</arg>
+<arg>2</arg>
+<status status="PASS" start="2024-05-10T12:46:23.805668" elapsed="0.002991"/>
+</kw>
+<kw name="Verify app calculation" owner="calculator_keyword">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Calculating: ${term}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-10T12:46:23.809525" elapsed="0.000275"/>
+</kw>
+<kw name="Do Math" owner="calculator">
+<msg time="2024-05-10T12:46:23.810346" level="INFO">${actual} = 22</msg>
+<var>${actual}</var>
+<arg>${term}</arg>
+<doc>Interpret term as a mathematical expression
+and return the result</doc>
+<status status="PASS" start="2024-05-10T12:46:23.809943" elapsed="0.000443"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Calculated Result: ${actual}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-10T12:46:23.810490" elapsed="0.000176"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2024-05-10T12:46:23.811064" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-05-10T12:46:23.810849" elapsed="0.000330"/>
+</kw>
+<arg>14 + 8</arg>
+<arg>22</arg>
+<status status="PASS" start="2024-05-10T12:46:23.809109" elapsed="0.002147"/>
+</kw>
+<kw name="Verify app calculation" owner="calculator_keyword">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Calculating: ${term}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-10T12:46:23.811985" elapsed="0.000172"/>
+</kw>
+<kw name="Do Math" owner="calculator">
+<msg time="2024-05-10T12:46:23.812550" level="INFO">${actual} = 6</msg>
+<var>${actual}</var>
+<arg>${term}</arg>
+<doc>Interpret term as a mathematical expression
+and return the result</doc>
+<status status="PASS" start="2024-05-10T12:46:23.812268" elapsed="0.000307"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Calculated Result: ${actual}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-10T12:46:23.812691" elapsed="0.000173"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2024-05-10T12:46:23.813224" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-05-10T12:46:23.813016" elapsed="0.000265"/>
+</kw>
+<arg>14 - 8</arg>
+<arg>6</arg>
+<status status="PASS" start="2024-05-10T12:46:23.811527" elapsed="0.001818"/>
+</kw>
+<kw name="Verify app calculation" owner="calculator_keyword">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Calculating: ${term}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-10T12:46:23.813873" elapsed="0.000169"/>
+</kw>
+<kw name="Do Math" owner="calculator">
+<msg time="2024-05-10T12:46:23.814330" level="INFO">${actual} = -6</msg>
+<var>${actual}</var>
+<arg>${term}</arg>
+<doc>Interpret term as a mathematical expression
+and return the result</doc>
+<status status="PASS" start="2024-05-10T12:46:23.814148" elapsed="0.000206"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Calculated Result: ${actual}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-10T12:46:23.814458" elapsed="0.000164"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2024-05-10T12:46:23.815053" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-05-10T12:46:23.814777" elapsed="0.000405"/>
+</kw>
+<arg>8 - 14</arg>
+<arg>-6</arg>
+<status status="PASS" start="2024-05-10T12:46:23.813595" elapsed="0.001667"/>
+</kw>
+<kw name="Verify app calculation" owner="calculator_keyword">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Calculating: ${term}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-10T12:46:23.815861" elapsed="0.000340"/>
+</kw>
+<kw name="Do Math" owner="calculator">
+<msg time="2024-05-10T12:46:23.816723" level="INFO">${actual} = 112</msg>
+<var>${actual}</var>
+<arg>${term}</arg>
+<doc>Interpret term as a mathematical expression
+and return the result</doc>
+<status status="PASS" start="2024-05-10T12:46:23.816369" elapsed="0.000426"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Calculated Result: ${actual}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-10T12:46:23.817000" elapsed="0.000162"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2024-05-10T12:46:23.817612" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-05-10T12:46:23.817361" elapsed="0.000308"/>
+</kw>
+<arg>8 * 14</arg>
+<arg>112</arg>
+<status status="PASS" start="2024-05-10T12:46:23.815500" elapsed="0.002231"/>
+</kw>
+<kw name="Verify app calculation" owner="calculator_keyword">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Calculating: ${term}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-10T12:46:23.818185" elapsed="0.000165"/>
+</kw>
+<kw name="Do Math" owner="calculator">
+<msg time="2024-05-10T12:46:23.818637" level="INFO">${actual} = 1.75</msg>
+<var>${actual}</var>
+<arg>${term}</arg>
+<doc>Interpret term as a mathematical expression
+and return the result</doc>
+<status status="PASS" start="2024-05-10T12:46:23.818455" elapsed="0.000206"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Calculated Result: ${actual}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-10T12:46:23.818790" elapsed="0.000164"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2024-05-10T12:46:23.819229" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-05-10T12:46:23.819060" elapsed="0.000228"/>
+</kw>
+<arg>14 / 8</arg>
+<arg>1.75</arg>
+<status status="PASS" start="2024-05-10T12:46:23.817917" elapsed="0.001525"/>
+</kw>
+<kw name="Verify app calculation" owner="calculator_keyword">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Calculating: ${term}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-10T12:46:23.820079" elapsed="0.000169"/>
+</kw>
+<kw name="Do Math" owner="calculator">
+<msg time="2024-05-10T12:46:23.820547" level="INFO">${actual} = 8.0</msg>
+<var>${actual}</var>
+<arg>${term}</arg>
+<doc>Interpret term as a mathematical expression
+and return the result</doc>
+<status status="PASS" start="2024-05-10T12:46:23.820357" elapsed="0.000216"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Calculated Result: ${actual}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-10T12:46:23.820683" elapsed="0.000198"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2024-05-10T12:46:23.821421" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-05-10T12:46:23.820996" elapsed="0.000488"/>
+</kw>
+<arg>4 + 8 * 2 / 4</arg>
+<arg>8</arg>
+<status status="PASS" start="2024-05-10T12:46:23.819761" elapsed="0.001795"/>
+</kw>
+<kw name="Verify app calculation" owner="calculator_keyword">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Calculating: ${term}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-10T12:46:23.822320" elapsed="0.000254"/>
+</kw>
+<kw name="Do Math" owner="calculator">
+<msg time="2024-05-10T12:46:23.823050" level="INFO">${actual} = 6.0</msg>
+<var>${actual}</var>
+<arg>${term}</arg>
+<doc>Interpret term as a mathematical expression
+and return the result</doc>
+<status status="PASS" start="2024-05-10T12:46:23.822766" elapsed="0.000317"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Calculated Result: ${actual}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-10T12:46:23.823221" elapsed="0.000213"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2024-05-10T12:46:23.823789" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-05-10T12:46:23.823574" elapsed="0.000311"/>
+</kw>
+<arg>(4 + 8) * 2 / 4</arg>
+<arg>6</arg>
+<status status="PASS" start="2024-05-10T12:46:23.821809" elapsed="0.002162"/>
+</kw>
+<status status="PASS" start="2024-05-10T12:46:23.803780" elapsed="0.020418"/>
+</test>
+<status status="PASS" start="2024-05-10T12:46:23.756439" elapsed="0.068260"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="First-Test">First-Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
