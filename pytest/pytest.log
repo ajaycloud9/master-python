@@ -1,0 +1,9 @@
+2024-07-13 19:06:14,828 : INFO : /Users/ajaysingh/Desktop/Python/pytest/tests/test_myfunctions.py : Diving the number and 0.5
+2024-07-13 19:06:15,831 : INFO : /Users/ajaysingh/Desktop/Python/pytest/tests/test_myfunctions.py : Diving the number and 3
+2024-07-13 19:07:42,582 : INFO : /Users/ajaysingh/Desktop/Python/pytest/tests/test_myfunctions.py : Diving the number and 0.5
+2024-07-13 19:07:43,588 : INFO : /Users/ajaysingh/Desktop/Python/pytest/tests/test_myfunctions.py : Diving the number and 3
+2024-07-13 19:07:43,616 : DEBUG : tests.test_pytest_logging : A debug
+2024-07-13 19:07:43,616 : INFO : tests.test_pytest_logging : An info
+2024-07-13 19:07:43,616 : WARNING : tests.test_pytest_logging : A warning
+2024-07-13 19:07:43,617 : ERROR : tests.test_pytest_logging : An error
+2024-07-13 19:07:43,617 : CRITICAL : tests.test_pytest_logging : Critical issues
