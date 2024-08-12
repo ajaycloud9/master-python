@@ -1,0 +1,40 @@
+2024-07-15 21:51:50,396 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Getting all the card titles
+2024-07-15 21:51:50,457 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Checkout the phone
+2024-07-15 21:51:50,567 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Purchasing the phone
+2024-07-15 21:52:01,640 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Selecting the country
+2024-07-15 21:52:01,895 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : ×
+Success! Thank you! Your order will be delivered in next few weeks :-).
+2024-07-15 21:55:44,647 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Getting all the card titles
+2024-07-15 21:55:44,702 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Checkout the phone
+2024-07-15 21:55:44,810 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Purchasing the phone
+2024-07-15 21:55:55,306 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Selecting the country
+2024-07-15 21:55:55,598 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : ×
+Success! Thank you! Your order will be delivered in next few weeks :-).
+2024-07-15 21:56:36,326 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Getting all the card titles
+2024-07-15 21:56:36,397 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Checkout the phone
+2024-07-15 21:56:36,534 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Purchasing the phone
+2024-07-15 21:56:47,611 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Selecting the country
+2024-07-15 21:56:47,935 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : ×
+Success! Thank you! Your order will be delivered in next few weeks :-).
+2024-07-16 18:47:09,609 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Uploading excel
+2024-07-16 18:47:09,609 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Uploading excel
+2024-07-16 18:47:55,083 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Uploading excel
+2024-07-16 18:48:51,886 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Uploading excel
+2024-07-16 20:42:08,330 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Uploading excel
+2024-07-16 20:42:53,427 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Uploading excel
+2024-07-16 20:48:24,434 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Uploading excel
+2024-07-16 20:52:02,191 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Uploading excel
+2024-07-16 20:52:21,151 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Uploading excel
+2024-07-16 20:52:21,151 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Uploading excel
+2024-07-16 20:58:04,703 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Uploading excel
+2024-07-16 20:58:23,858 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Uploading excel
+2024-07-16 20:58:23,858 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Uploading excel
+2024-07-16 21:00:05,925 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Uploading excel
+2024-07-16 21:00:25,101 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Uploading excel
+2024-07-16 21:00:25,101 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Uploading excel
+2024-07-16 21:03:03,502 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Uploading excel
+2024-07-16 21:03:17,571 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Uploading excel
+2024-07-16 21:03:17,571 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Uploading excel
+2024-07-16 21:04:40,419 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Uploading excel
+2024-07-16 21:04:59,523 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Uploading excel
+2024-07-16 21:04:59,523 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Uploading excel

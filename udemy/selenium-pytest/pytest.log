@@ -1,0 +1,25 @@
+2024-07-15 21:11:46,301 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Getting all the card titles
+2024-07-15 21:11:46,360 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Checkout the phone
+2024-07-15 21:11:46,489 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Purchasing the phone
+2024-07-15 21:11:57,030 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Selecting the country
+2024-07-15 21:11:57,338 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : ×
+Success! Thank you! Your order will be delivered in next few weeks :-).
+2024-07-16 17:27:17,980 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Getting all the card titles
+2024-07-16 17:27:18,038 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Checkout the phone
+2024-07-16 17:27:18,146 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Purchasing the phone
+2024-07-16 17:27:28,637 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Selecting the country
+2024-07-16 17:27:28,876 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : ×
+Success! Thank you! Your order will be delivered in next few weeks :-).
+2024-07-16 17:33:53,855 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Sleeping for 5 sec
+2024-07-16 17:47:01,632 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Sleeping for 5 sec
+2024-07-16 18:02:58,987 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Sleeping for 5 sec
+2024-07-16 18:03:04,001 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Updaring excel
+2024-07-16 18:03:04,001 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Updaring excel
+2024-07-16 18:06:27,309 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Updaring excel
+2024-07-16 18:06:27,309 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Updaring excel
+2024-07-16 18:08:32,842 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Sleeping for 5 sec
+2024-07-16 18:08:37,887 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Updaring excel
+2024-07-16 18:08:37,887 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Updaring excel
+2024-07-16 18:10:13,093 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Sleeping for 5 sec
+2024-07-16 18:10:18,104 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Updaring excel
+2024-07-16 18:10:18,104 : INFO : /Users/ajaysingh/Desktop/Python/selenium-pytest/tests/test_e2e.py : Updaring excel

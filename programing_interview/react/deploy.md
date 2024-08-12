@@ -1,0 +1,1 @@
+scp -r ./build/* homelab@10.0.0.171:/var/www/html
