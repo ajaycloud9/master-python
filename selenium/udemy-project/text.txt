@@ -1,6 +1,0 @@
-circus
-zoo
-elephent
-element
-dog
-cat
