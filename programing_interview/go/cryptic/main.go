@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/ajaycloud9/master-python/cryptic/decrypt"
-	"github.com/ajaycloud9/master-python/cryptic/encrypt"
+	"github.com/ajaycloud9/master-python/programing_interview/go/cryptic/decrypt"
+	"github.com/ajaycloud9/master-python/programing_interview/go/cryptic/encrypt"
 )
 
 func main() {
