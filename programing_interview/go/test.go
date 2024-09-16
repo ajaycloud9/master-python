@@ -1,34 +1,61 @@
 package main
-import "fmt"
 
-type Student interface {
-	getPercentage() int
-	getName()
+import (
+	"html/template"
+	"log"
+	"net/http"
+	"path/filepath"
+)
+
+type User struct {
+	FirstName string `json:"first_name"`
+	LastName  string `json:"last_name"`
 }
 
-type Undergrad struct {
-	name   string
-	grades []int
-}
-
-func (u Undergrad) getPercentage() int {
-	sum := 0
-	for _, v := range u.grades {
-		sum += v
+// Handle POST request
+func handlePost(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
+		return
 	}
-	return sum / len(u.grades)
+
+	firstName := r.FormValue("first_name")
+	lastName := r.FormValue("last_name")
+
+	// Create a User instance
+	user := User{
+		FirstName: firstName,
+		LastName:  lastName,
+	}
+
+	// Create a response template
+	tmpl := `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Greeting</title>
+    </head>
+    <body>
+        <h1>Hello, {{.FirstName}} {{.LastName}}!</h1>
+        <p>Thank you for submitting your details.</p>
+    </body>
+    </html>
+    `
+	t := template.Must(template.New("response").Parse(tmpl))
+
+	w.Header().Set("Content-Type", "text/html")
+	w.WriteHeader(http.StatusOK)
+	t.Execute(w, user)
 }
 
-func (u Undergrad) getName() {
-	fmt.Println(u.name)
-}
-func printPercentage(s Student) {
-	fmt.Println(s.getPercentage())
+func handleIndex(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, filepath.Join("static", "index.html"))
 }
 
 func main() {
-	grades := []int{90, 75, 80}
-	u := Undergrad{"Ross", grades}
-	printPercentage(u)
-	u.getName()
+	http.HandleFunc("/", handleIndex)
+	http.HandleFunc("/submit", handlePost)
+	log.Fatal(http.ListenAndServe(":8081", nil))
 }
