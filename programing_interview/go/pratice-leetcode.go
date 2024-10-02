@@ -1,30 +1,35 @@
 package main
+
+// Basic imports
 import (
-    "strconv"
-    "fmt"
-	"reflect"
-	"strings"
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/suite"
 )
 
-func main () {
-	x := 121
-	mystr := strconv.Itoa(x)
-	fmt.Println("%T %v", mystr, mystr)
-	fmt.Println(reflect.TypeOf(mystr))
-	arrayofstring := strings.Split(mystr,"")
-	fmt.Println("%T %v", arrayofstring, arrayofstring)
-	for i,digit := range arrayofstring {
-		fmt.Println(i,digit)
-	}
-	fmt.Println("=========================")
-	for i:=0; i < len(arrayofstring); i++ {
-		fmt.Println(i,arrayofstring[i])
-	}
-	fmt.Println("============REVERSE=========")
-	for i:=len(arrayofstring)-1; i >= 0; i-- {
-		fmt.Println(i,arrayofstring[i])
-	}
+// Define the suite, and absorb the built-in basic suite
+// functionality from testify - including a T() method which
+// returns the current testing context
+type ExampleTestSuite struct {
+	suite.Suite
+	VariableThatShouldStartAtFive int
 }
 
+// Make sure that VariableThatShouldStartAtFive is set to five
+// before each test
+func (suite *ExampleTestSuite) SetupTest() {
+	suite.VariableThatShouldStartAtFive = 5
+}
 
+// All methods that begin with "Test" are run as tests within a
+// suite.
+func (suite *ExampleTestSuite) TestExample() {
+	assert.Equal(suite.T(), 5, suite.VariableThatShouldStartAtFive)
+}
 
+// In order for 'go test' to run this suite, we need to create
+// a normal test function and pass our suite to suite.Run
+func TestExampleTestSuite(t *testing.T) {
+	suite.Run(t, new(ExampleTestSuite))
+}

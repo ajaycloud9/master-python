@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="2" failures="1">
+	<testsuite name="example.com/m" tests="2" failures="1" errors="0" id="0" hostname="EXT-H2MXXYWCK7" time="0.135" timestamp="2024-09-24T14:00:10-07:00">
+		<testcase name="TestAdd" classname="example.com/m" time="0.000">
+			<system-out><![CDATA[Set-up
+Teardown]]></system-out>
+		</testcase>
+		<testcase name="TestAnother" classname="example.com/m" time="0.000">
+			<failure message="Failed"><![CDATA[Set-up
+    main_test.go:44: Expected value to be 23, got 42
+Teardown]]></failure>
+		</testcase>
+	</testsuite>
+</testsuites>
