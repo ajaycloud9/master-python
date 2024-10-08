@@ -1,0 +1,40 @@
+
+{
+    "person_id": 1,
+    "first_name": "Ajay",
+    "last_name": "Singh",
+    "date": "2024-10-05",
+    "weight": 182.6
+}
+
+{
+    "person_id": 2,
+    "first_name": "Archana",
+    "last_name": "Singh",
+    "date": "2024-10-05",
+    "weight": 127.8
+}
+
+{
+    "person_id": 3,
+    "first_name": "Umair",
+    "last_name": "Akhtar",
+    "date": "2024-10-05",
+    "weight": 179.2
+}
+
+{
+    "person_id": 4,
+    "first_name": "Ketan",
+    "last_name": "Joshi",
+    "date": "2024-10-05",
+    "weight": 142.8
+}
+
+{
+    "person_id": 5,
+    "first_name": "Ketan",
+    "last_name": "Joshi",
+    "date": "2024-10-05",
+    "weight": 120.4
+}

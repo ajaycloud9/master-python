@@ -13,7 +13,7 @@ JOIN
     Person p2 
 ON 
     p1.person_id = p2.person_id 
-    AND p1.date = '2024-09-22'  -- First date
-    AND p2.date = '2024-09-29'   -- Second date
+    AND p1.date = '{previous-date}'  -- First date
+    AND p2.date = '{latest-date}'   -- Second date
 ORDER BY 
     weight_difference ASC;  -- Sort by weight_difference in ascending order

@@ -8,6 +8,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 
 	_ "github.com/go-sql-driver/mysql"
 )
@@ -104,6 +105,34 @@ func DeleteRecord(db *sql.DB, person PersonJson) error {
 	return err
 }
 
+func getLastTwoDates(db *sql.DB) (string, error) {
+
+	var Dates []string
+	query := "SELECT DISTINCT date FROM Person ORDER BY date DESC LIMIT 2;"
+	rows, err := db.Query(query)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer rows.Close()
+	fmt.Println("Last dates")
+	for rows.Next() {
+		var date string
+		if err := rows.Scan(&date); err != nil {
+			log.Fatal(err)
+		}
+		Dates = append(Dates, date)
+		// fmt.Printf("Date: %s", date)
+	}
+	query4, err := readSQLFile("weight_diff.sql")
+	if err != nil {
+		log.Fatal(err)
+	}
+	query4 = strings.ReplaceAll(query4, "{previous-date}", Dates[1])
+	query4 = strings.ReplaceAll(query4, "{latest-date}", Dates[0])
+	return query4, nil
+
+}
+
 func viewPersons(db *sql.DB) {
 	query := "SELECT person_id, first_name, last_name, date, weight FROM Person"
 	rows, err := db.Query(query)
@@ -156,7 +185,7 @@ func handleRequests(db *sql.DB) {
 		}
 	})
 
-	query, err := readSQLFile("weight_diff.sql")
+	query, err := getLastTwoDates(db)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -248,13 +277,8 @@ func main() {
 	// Call the function to get weight differences
 	// getWeightDifferences(db, query)
 
-	viewPersons(db)
+	// viewPersons(db)
 	handleRequests(db)
-	// query := `
-	//     SELECT *
-	//     FROM Person;`
-	// getAllPersons(db, query)
-
 	fmt.Println("Server starting on :8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
 
