@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Person Table</title>
+</head>
+<body>
+    <h1>Person Table</h1>
+    <table border="1">
+        <tr>
+            <th>Person ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Date</th>
+            <th>Weight</th>
+        </tr>
+        {{range .}}
+        <tr>
+            <td>{{.PersonID}}</td>
+            <td>{{.FirstName}}</td>
+            <td>{{.LastName}}</td>
+            <td>{{.Date}}</td>
+            <td>{{.Weight}}</td>
+        </tr>
+        {{end}}
+    </table>
+    <a href="/leaderboard">View Leaderboard</a>
+</body>
+</html>

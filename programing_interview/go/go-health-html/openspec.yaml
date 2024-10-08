@@ -1,0 +1,75 @@
+openapi: 3.0.0
+info:
+  title: Weight Tracker API
+  description: API for inserting a person's weight record.
+  version: 1.0.0
+
+servers:
+  - url: http://api.yourwebsite.com/v1
+
+paths:
+  /updateweight:
+    post:
+      summary: Insert a person's weight record
+      operationId: insertPerson
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                person_id:
+                  type: integer
+                  description: Unique identifier for the person
+                first_name:
+                  type: string
+                  description: First name of the person
+                last_name:
+                  type: string
+                  description: Last name of the person
+                date:
+                  type: string
+                  format: date
+                  description: Date of the weight record
+                weight:
+                  type: number
+                  format: float
+                  description: Weight of the person in kg
+              required:
+                - person_id
+                - first_name
+                - last_name
+                - date
+                - weight
+      responses:
+        '201':
+          description: Person added successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Person added successfully
+        '400':
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Invalid weight value
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Internal server error

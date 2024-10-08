@@ -1,0 +1,85 @@
+openapi: 3.0.0
+info:
+  title: Weight Tracker API
+  description: API for inserting a person's weight record.
+  version: 1.0.0
+servers:
+- url: http://api.yourwebsite.com/v1
+paths:
+  /updateweight:
+    post:
+      summary: Insert a person's weight record
+      operationId: insertPerson
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/updateweight_body'
+        required: true
+      responses:
+        "201":
+          description: Person added successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_201'
+        "400":
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
+components:
+  schemas:
+    updateweight_body:
+      required:
+      - date
+      - first_name
+      - last_name
+      - person_id
+      - weight
+      type: object
+      properties:
+        person_id:
+          type: integer
+          description: Unique identifier for the person
+        first_name:
+          type: string
+          description: First name of the person
+        last_name:
+          type: string
+          description: Last name of the person
+        date:
+          type: string
+          description: Date of the weight record
+          format: date
+        weight:
+          type: number
+          description: Weight of the person in kg
+          format: float
+    inline_response_201:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Person added successfully
+      example:
+        message: Person added successfully
+    inline_response_400:
+      type: object
+      properties:
+        error:
+          type: string
+          example: Invalid weight value
+    inline_response_500:
+      type: object
+      properties:
+        error:
+          type: string
+          example: Internal server error
