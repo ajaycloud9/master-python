@@ -11,6 +11,7 @@ import (
 	"strings"
 
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/joho/godotenv"
 )
 
 type Person struct {
@@ -167,7 +168,7 @@ func handleRequests(db *sql.DB) {
 		SELECT *
 		FROM Person
 		ORDER BY date, weight DESC;`
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
 		persons, err := getAllPersons(db, query1)
 		if err != nil {
 			http.Error(w, "Error retrieving data", http.StatusInternalServerError)
@@ -189,7 +190,7 @@ func handleRequests(db *sql.DB) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	http.HandleFunc("/leaderboard", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/health/leaderboard", func(w http.ResponseWriter, r *http.Request) {
 		persons, err := getWeightDifferences(db, query)
 		if err != nil {
 			http.Error(w, "Error retrieving data", http.StatusInternalServerError)
@@ -207,7 +208,7 @@ func handleRequests(db *sql.DB) {
 		}
 	})
 
-	http.HandleFunc("/updateweight", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/health/updateweight", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPost {
 			http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
 			return
@@ -228,7 +229,7 @@ func handleRequests(db *sql.DB) {
 
 	})
 
-	http.HandleFunc("/deleteweight", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/health/deleteweight", func(w http.ResponseWriter, r *http.Request) {
 
 		// If this is not delete request return Method not allowed
 		if r.Method != http.MethodDelete {
@@ -254,8 +255,21 @@ func handleRequests(db *sql.DB) {
 }
 
 func main() {
+	// Load .env file
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+
+	// Read environment variables
+	user := os.Getenv("DB_USER")
+	password := os.Getenv("DB_PASSWORD")
+	dbname := os.Getenv("DB_NAME")
+
+	// Construct the DSN
+	dsn := fmt.Sprintf("%s:%s@tcp(localhost:3306)/%s", user, password, dbname)
 	// Change the user, password, dbname, and other parameters as needed
-	dsn := "root:dangerous@tcp(localhost:3306)/inventory"
+	// dsn := "root:snxplmqa2312@tcp(localhost:3306)/inventory"
 	db, err := sql.Open("mysql", dsn)
 	if err != nil {
 		log.Fatal(err)

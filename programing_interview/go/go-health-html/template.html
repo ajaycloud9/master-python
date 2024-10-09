@@ -2,6 +2,17 @@
 <html>
 <head>
     <title>Weight Differences</title>
+    <style>
+        .winner {
+            background-color: lightgreen; /* Highlight for the winner */
+            font-weight: bold;
+        }
+        .winner-label {
+            margin-left: 10px; /* Space between the name and the label */
+            color: gold;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <h1>Weight Differences</h1>
@@ -16,9 +27,13 @@
             <th>Weight</th>
             <th>Weight Difference</th>
         </tr>
-        {{range .}}
-        <tr>
-            <td>{{.PersonID}}</td>
+        {{range $index, $person := .}}
+        <tr {{if eq $index 0}}class="winner"{{end}}>
+            <td>{{.PersonID}}
+                {{if eq $index 0}} 
+                <span class="winner-label">🏆 Winner</span>
+                {{end}}
+            </td>
             <td>{{.FirstName}}</td>
             <td>{{.LastName}}</td>
             <td>{{.Date}}</td>
