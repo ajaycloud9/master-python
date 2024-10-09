@@ -124,7 +124,7 @@ func getLastTwoDates(db *sql.DB) (string, error) {
 		Dates = append(Dates, date)
 		// fmt.Printf("Date: %s", date)
 	}
-	query4, err := readSQLFile("weight_diff.sql")
+	query4, err := readSQLFile("/home/homelab/git/master-python/programing_interview/go/go-health-html/weight_diff.sql")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -175,7 +175,7 @@ func handleRequests(db *sql.DB) {
 			return
 		}
 
-		tmpl, err := template.ParseFiles("complete_person_table.html")
+		tmpl, err := template.ParseFiles("/home/homelab/git/master-python/programing_interview/go/go-health-html/complete_person_table.html")
 		if err != nil {
 			http.Error(w, "Error loading template", http.StatusInternalServerError)
 			return
@@ -197,7 +197,7 @@ func handleRequests(db *sql.DB) {
 			return
 		}
 
-		tmpl, err := template.ParseFiles("template.html")
+		tmpl, err := template.ParseFiles("/home/homelab/git/master-python/programing_interview/go/go-health-html/template.html")
 		if err != nil {
 			http.Error(w, "Error loading template", http.StatusInternalServerError)
 			return
@@ -256,7 +256,7 @@ func handleRequests(db *sql.DB) {
 
 func main() {
 	// Load .env file
-	err := godotenv.Load()
+	err := godotenv.Load("/home/homelab/git/master-python/programing_interview/go/go-health-html/.env")
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
