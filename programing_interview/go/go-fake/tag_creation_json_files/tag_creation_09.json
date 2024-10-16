@@ -1,0 +1,92 @@
+[
+  {
+    "name": "owner-9-tag-1",
+    "type": "manual",
+    "serviceOwner": "network",
+    "ownerId": 9,
+    "access": "write",
+    "description": "Aut voluptatem consequatur sit accusantium perferendis.",
+    "parent": "4fd8fa8889b24913b553ba6165ebca85"
+  },
+  {
+    "name": "owner-9-tag-2",
+    "type": "auto",
+    "serviceOwner": "edge",
+    "ownerId": 9,
+    "access": "read",
+    "description": "Perferendis consequatur accusantium voluptatem sit aut.",
+    "parent": "b4e9973f59914419a04e6e9d0e1beafa"
+  },
+  {
+    "name": "owner-9-tag-3",
+    "type": "manual",
+    "serviceOwner": "edge",
+    "ownerId": 9,
+    "access": "write",
+    "description": "Perferendis aut sit consequatur accusantium voluptatem.",
+    "parent": "ef24a0c9af0545c0800f5c30022a5628"
+  },
+  {
+    "name": "owner-9-tag-4",
+    "type": "manual",
+    "serviceOwner": "edge",
+    "ownerId": 9,
+    "access": "read",
+    "description": "Voluptatem aut sit consequatur perferendis accusantium.",
+    "parent": "66f8ba2873a642dcbe3ac6e2b0d852d6"
+  },
+  {
+    "name": "owner-9-tag-5",
+    "type": "manual",
+    "serviceOwner": "edge",
+    "ownerId": 9,
+    "access": "read",
+    "description": "Accusantium aut voluptatem perferendis sit consequatur.",
+    "parent": "02b6872cc72d43e5a09c068ca5ec03d8"
+  },
+  {
+    "name": "owner-9-tag-6",
+    "type": "policy",
+    "serviceOwner": "iam",
+    "ownerId": 9,
+    "access": "read",
+    "description": "Perferendis accusantium voluptatem aut sit consequatur.",
+    "parent": "ec4ff68b1a9a4f60b29f9336effce80b"
+  },
+  {
+    "name": "owner-9-tag-7",
+    "type": "manual",
+    "serviceOwner": "network",
+    "ownerId": 9,
+    "access": "write",
+    "description": "Aut accusantium voluptatem consequatur perferendis sit.",
+    "parent": "75194afbb6354dee86bd907f424bdc40"
+  },
+  {
+    "name": "owner-9-tag-8",
+    "type": "manual",
+    "serviceOwner": "network",
+    "ownerId": 9,
+    "access": "write",
+    "description": "Consequatur voluptatem sit perferendis aut accusantium.",
+    "parent": "d783d2a394974f61b6b377c5322e980e"
+  },
+  {
+    "name": "owner-9-tag-9",
+    "type": "manual",
+    "serviceOwner": "network",
+    "ownerId": 9,
+    "access": "read",
+    "description": "Perferendis sit aut accusantium voluptatem consequatur.",
+    "parent": "a78bf4e80f514071a8c65df568d3a554"
+  },
+  {
+    "name": "owner-9-tag-10",
+    "type": "auto",
+    "serviceOwner": "network",
+    "ownerId": 9,
+    "access": "write",
+    "description": "Voluptatem perferendis accusantium sit aut consequatur.",
+    "parent": "e029d389aab64bd7b9a3c451c641f763"
+  }
+]
