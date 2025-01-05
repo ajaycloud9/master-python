@@ -1,65 +1,40 @@
-"""
-Implement a function or class that waits for a specific file to be present in some directory.
-"""
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from msal import ConfidentialClientApplication
 
-path = "/tmp/"
-filename = "test.txt"
+# Email configuration
+smtp_server = 'smtp.gmail.com'
+smtp_port = 587
+smtp_username = 'connectoajay@gmail.com'
+smtp_password = 'drjqjmrqrxvwqyfz'
 
-import subprocess
-def checkFileReadyinDirectory(path, file_name,TIMEOUT=5):
-		time_start = time.time()
-    # Waiting for the file to be found
-		while time_spent <= TIMEOUT :
-    		if file in path:
-        		return True
-        time_spent = time.time() - time.start()
-    return False
-    
+# Email content
+from_email = smtp_username
+to_email = 'ajaysingh@extremenetworks.com'
+subject = 'Test Email from Python Script'
+body = 'This is a test email sent from a Python script using SMTP authentication with Microsoft Outlook.'
 
-    		
-		
+# Create the email message
+msg = MIMEMultipart()
+msg['From'] = from_email
+msg['To'] = to_email
+msg['Subject'] = subject
+msg.attach(MIMEText(body, 'plain'))
 
+try:
+    # Connect to the SMTP server
+    server = smtplib.SMTP(smtp_server, smtp_port)
+    server.starttls()  # Upgrade the connection to a secure encrypted SSL/TLS connection
+    server.login(smtp_username, smtp_password)  # Log in to the SMTP server
 
+    # Send the email
+    server.sendmail(from_email, to_email, msg.as_string())
+    print('Email sent successfully!')
 
-"""
-Please write a method that retrieves filtered data based on the query parameters in a GET request.
-This method should be capable of filtering items based on specific criteria, such as color and/or price.
+except Exception as e:
+    print(f'Failed to send email: {e}')
 
-https://example.com/api/v1/items?color=Green                # return only items of particular color
-https://example.com/api/v1/items?price=15.00                # return items with price equal or lower than specified
-https://example.com/api/v1/items?color=Green&price=15.00    # return items of particular color and price
-
-For example, https://example.com/api/v1/items?color=Green&price=15.00 should return:
-
-{
-    "inventory": [
-        {
-            "name": "Jackets",
-            "products": [
-                {"size": "S", "color": "Green", "price": 13.99, "discount": 0.15},
-            ],
-        },
-    ]
-}
-"""
-
-data = {
-    "inventory": [
-        {
-            "name": "T-shirts",
-            "products": [
-                {"size": "S", "color": "Red", "price": 12.99, "discount": 0.1},
-                {"size": "M", "color": "Blue", "price": 14.99, "discount": 0.05},
-                {"size": "L", "color": "Green", "price": 26.99, "discount": 0.0},
-            ],
-        },
-        {
-            "name": "Jackets",
-            "products": [
-                {"size": "S", "color": "Green", "price": 13.99, "discount": 0.15},
-                {"size": "M", "color": "Blue", "price": 18.99, "discount": 0.0},
-                {"size": "L", "color": "Grey", "price": 24.99, "discount": 0.2},
-            ],
-        },
-    ]
-}
+finally:
+    # Close the connection to the SMTP server
+    server.quit()

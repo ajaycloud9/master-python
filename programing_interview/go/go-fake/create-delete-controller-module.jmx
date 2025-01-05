@@ -12,7 +12,7 @@
       <hashTree>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Create Tag Controller"/>
         <hashTree>
-          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CreateJsonCsvFileListing" enabled="true">
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CreateJsonCsvFileListing">
             <stringProp name="delimiter">,</stringProp>
             <stringProp name="fileEncoding"></stringProp>
             <stringProp name="filename">/Users/ajaysingh/ws/master-python/programing_interview/go/go-fake/tag_creation_json_files/tag_creation_listing.csv</stringProp>
@@ -24,7 +24,7 @@
             <stringProp name="variableNames">JSON_FILE</stringProp>
           </CSVDataSet>
           <hashTree/>
-          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="TagCreateVariables" enabled="true">
+          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="TagCreateVariables">
             <collectionProp name="Arguments.arguments">
               <elementProp name="create_url" elementType="Argument">
                 <stringProp name="Argument.name">create_url</stringProp>
@@ -44,7 +44,7 @@
             </collectionProp>
           </Arguments>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request">
             <stringProp name="HTTPSampler.path">${create_url}</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <stringProp name="HTTPSampler.method">${method}</stringProp>
@@ -61,7 +61,7 @@
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="" elementType="Header">
                   <stringProp name="Header.name">User-Agent</stringProp>
@@ -75,7 +75,7 @@
             </HeaderManager>
             <hashTree/>
           </hashTree>
-          <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+          <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report">
             <boolProp name="ResultCollector.error_logging">false</boolProp>
             <objProp>
               <name>saveConfig</name>
@@ -158,7 +158,7 @@
         </hashTree>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Delete Tag Controller"/>
         <hashTree>
-          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="TagDeleteVariables" enabled="true">
+          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="TagDeleteVariables">
             <collectionProp name="Arguments.arguments">
               <elementProp name="url" elementType="Argument">
                 <stringProp name="Argument.name">url</stringProp>
@@ -178,7 +178,7 @@
             </collectionProp>
           </Arguments>
           <hashTree/>
-          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="DeleteJsonCsvFileListing" enabled="true">
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="DeleteJsonCsvFileListing">
             <stringProp name="delimiter">,</stringProp>
             <stringProp name="fileEncoding"></stringProp>
             <stringProp name="filename">/Users/ajaysingh/ws/master-python/programing_interview/go/go-fake/tag_deletion_json_files/tag_deletion-listing.csv</stringProp>
@@ -190,7 +190,7 @@
             <stringProp name="variableNames">JSON_FILE</stringProp>
           </CSVDataSet>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request">
             <stringProp name="HTTPSampler.path">${url}</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <stringProp name="HTTPSampler.method">${method}</stringProp>
@@ -207,7 +207,7 @@
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="" elementType="Header">
                   <stringProp name="Header.name">User-Agent</stringProp>
@@ -221,7 +221,7 @@
             </HeaderManager>
             <hashTree/>
           </hashTree>
-          <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+          <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report">
             <boolProp name="ResultCollector.error_logging">false</boolProp>
             <objProp>
               <name>saveConfig</name>
@@ -258,7 +258,7 @@
             <stringProp name="filename"></stringProp>
           </ResultCollector>
           <hashTree/>
-          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
             <boolProp name="ResultCollector.error_logging">false</boolProp>
             <objProp>
               <name>saveConfig</name>
@@ -315,7 +315,7 @@
       </ThreadGroup>
       <hashTree>
         <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Create Loop Controller">
-          <stringProp name="LoopController.loops">50</stringProp>
+          <stringProp name="LoopController.loops">10</stringProp>
         </LoopController>
         <hashTree>
           <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="Create-Tag Module Controller">
@@ -329,7 +329,7 @@
           <hashTree/>
         </hashTree>
         <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Delete Loop Controller">
-          <stringProp name="LoopController.loops">50</stringProp>
+          <stringProp name="LoopController.loops">10</stringProp>
         </LoopController>
         <hashTree>
           <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="Delete-Tag Module Controller">

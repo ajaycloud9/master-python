@@ -5,17 +5,17 @@
 # Abstract classes cannot not be instantiated, and require subclasses to provide implementation for the abstract methods
 # Subclasses of an abstract class in Python are not required to implement abstract methods of the parent class. 
 
-from abc import ABC, abstractclassmethod
+from abc import ABC
 
 class FoodChain(ABC):
-    @abstractclassmethod
+    @classmethod
     def food(self):
         pass
 
-    @abstractclassmethod
+    @classmethod
     def eat(self):
         pass
-    @abstractclassmethod
+    @classmethod
     def poop(self):
         pass
 

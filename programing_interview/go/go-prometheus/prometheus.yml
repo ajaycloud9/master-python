@@ -1,0 +1,21 @@
+global:
+  scrape_interval: 15s
+
+# Alert manager Configuration
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets:
+      - "localhost:9093"
+
+scrape_configs:
+  - job_name: "prometheus"
+    static_configs:
+    - targets: ["localhost:9090"]
+  - job_name: "go-direction-app"
+    static_configs:
+    - targets: ["localhost:8000"]
+
+# Load rules once and periodically evaluate them according to the gloabal 'evaluation_interval'
+rule_files:
+  - "rules/myrules.yml"

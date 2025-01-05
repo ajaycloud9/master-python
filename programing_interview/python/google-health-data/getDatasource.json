@@ -1,0 +1,404 @@
+{
+    "dataSource": [
+      {
+        "dataStreamId": "derived:com.google.active_minutes:com.google.android.gms:merge_active_minutes",
+        "dataStreamName": "merge_active_minutes",
+        "type": "derived",
+        "dataType": {
+          "name": "com.google.active_minutes",
+          "field": [
+            {
+              "name": "duration",
+              "format": "integer"
+            }
+          ]
+        },
+        "application": {
+          "packageName": "com.google.android.gms"
+        },
+        "dataQualityStandard": []
+      },
+      {
+        "dataStreamId": "derived:com.google.activity.segment:com.google.android.fit:Google:Pixel 9:ba2a0e9f:top_level",
+        "dataStreamName": "top_level",
+        "type": "derived",
+        "dataType": {
+          "name": "com.google.activity.segment",
+          "field": [
+            {
+              "name": "activity",
+              "format": "integer"
+            }
+          ]
+        },
+        "device": {
+          "uid": "ba2a0e9f",
+          "type": "phone",
+          "version": "",
+          "model": "Pixel 9",
+          "manufacturer": "Google"
+        },
+        "application": {
+          "packageName": "com.google.android.fit"
+        },
+        "dataQualityStandard": []
+      },
+      {
+        "dataStreamId": "derived:com.google.activity.segment:com.google.android.gms:merge_activity_segments",
+        "dataStreamName": "merge_activity_segments",
+        "type": "derived",
+        "dataType": {
+          "name": "com.google.activity.segment",
+          "field": [
+            {
+              "name": "activity",
+              "format": "integer"
+            }
+          ]
+        },
+        "application": {
+          "packageName": "com.google.android.gms"
+        },
+        "dataQualityStandard": []
+      },
+      {
+        "dataStreamId": "derived:com.google.calories.bmr:com.google.android.gms:merged",
+        "dataStreamName": "merged",
+        "type": "derived",
+        "dataType": {
+          "name": "com.google.calories.bmr",
+          "field": [
+            {
+              "name": "calories",
+              "format": "floatPoint"
+            }
+          ]
+        },
+        "application": {
+          "packageName": "com.google.android.gms"
+        },
+        "dataQualityStandard": []
+      },
+      {
+        "dataStreamId": "derived:com.google.calories.expended:com.google.android.fit:Google:Pixel 9:ba2a0e9f:top_level",
+        "dataStreamName": "top_level",
+        "type": "derived",
+        "dataType": {
+          "name": "com.google.calories.expended",
+          "field": [
+            {
+              "name": "calories",
+              "format": "floatPoint"
+            }
+          ]
+        },
+        "device": {
+          "uid": "ba2a0e9f",
+          "type": "phone",
+          "version": "",
+          "model": "Pixel 9",
+          "manufacturer": "Google"
+        },
+        "application": {
+          "packageName": "com.google.android.fit"
+        },
+        "dataQualityStandard": []
+      },
+      {
+        "dataStreamId": "derived:com.google.calories.expended:com.google.android.gms:merge_calories_expended",
+        "dataStreamName": "merge_calories_expended",
+        "type": "derived",
+        "dataType": {
+          "name": "com.google.calories.expended",
+          "field": [
+            {
+              "name": "calories",
+              "format": "floatPoint"
+            }
+          ]
+        },
+        "application": {
+          "packageName": "com.google.android.gms"
+        },
+        "dataQualityStandard": []
+      },
+      {
+        "dataStreamId": "derived:com.google.distance.delta:com.google.android.fit:Google:Pixel 9:ba2a0e9f:top_level",
+        "dataStreamName": "top_level",
+        "type": "derived",
+        "dataType": {
+          "name": "com.google.distance.delta",
+          "field": [
+            {
+              "name": "distance",
+              "format": "floatPoint"
+            }
+          ]
+        },
+        "device": {
+          "uid": "ba2a0e9f",
+          "type": "phone",
+          "version": "",
+          "model": "Pixel 9",
+          "manufacturer": "Google"
+        },
+        "application": {
+          "packageName": "com.google.android.fit"
+        },
+        "dataQualityStandard": []
+      },
+      {
+        "dataStreamId": "derived:com.google.distance.delta:com.google.android.gms:merge_distance_delta",
+        "dataStreamName": "merge_distance_delta",
+        "type": "derived",
+        "dataType": {
+          "name": "com.google.distance.delta",
+          "field": [
+            {
+              "name": "distance",
+              "format": "floatPoint"
+            }
+          ]
+        },
+        "application": {
+          "packageName": "com.google.android.gms"
+        },
+        "dataQualityStandard": []
+      },
+      {
+        "dataStreamId": "derived:com.google.heart_minutes:com.google.android.gms:merge_heart_minutes",
+        "dataStreamName": "merge_heart_minutes",
+        "type": "derived",
+        "dataType": {
+          "name": "com.google.heart_minutes",
+          "field": [
+            {
+              "name": "intensity",
+              "format": "floatPoint"
+            }
+          ]
+        },
+        "application": {
+          "packageName": "com.google.android.gms"
+        },
+        "dataQualityStandard": []
+      },
+      {
+        "dataStreamId": "derived:com.google.height:com.google.android.gms:merge_height",
+        "dataStreamName": "merge_height",
+        "type": "derived",
+        "dataType": {
+          "name": "com.google.height",
+          "field": [
+            {
+              "name": "height",
+              "format": "floatPoint"
+            }
+          ]
+        },
+        "application": {
+          "packageName": "com.google.android.gms"
+        },
+        "dataQualityStandard": []
+      },
+      {
+        "dataStreamId": "derived:com.google.sleep.segment:com.google.android.gms:merged",
+        "dataStreamName": "merged",
+        "type": "derived",
+        "dataType": {
+          "name": "com.google.sleep.segment",
+          "field": [
+            {
+              "name": "sleep_segment_type",
+              "format": "integer"
+            }
+          ]
+        },
+        "application": {
+          "packageName": "com.google.android.gms"
+        },
+        "dataQualityStandard": []
+      },
+      {
+        "dataStreamId": "derived:com.google.speed:com.google.android.fit:Google:Pixel 9:ba2a0e9f:top_level",
+        "dataStreamName": "top_level",
+        "type": "derived",
+        "dataType": {
+          "name": "com.google.speed",
+          "field": [
+            {
+              "name": "speed",
+              "format": "floatPoint"
+            }
+          ]
+        },
+        "device": {
+          "uid": "ba2a0e9f",
+          "type": "phone",
+          "version": "",
+          "model": "Pixel 9",
+          "manufacturer": "Google"
+        },
+        "application": {
+          "packageName": "com.google.android.fit"
+        },
+        "dataQualityStandard": []
+      },
+      {
+        "dataStreamId": "derived:com.google.speed:com.google.android.gms:merge_speed",
+        "dataStreamName": "merge_speed",
+        "type": "derived",
+        "dataType": {
+          "name": "com.google.speed",
+          "field": [
+            {
+              "name": "speed",
+              "format": "floatPoint"
+            }
+          ]
+        },
+        "application": {
+          "packageName": "com.google.android.gms"
+        },
+        "dataQualityStandard": []
+      },
+      {
+        "dataStreamId": "derived:com.google.step_count.delta:com.google.android.fit:Google:Pixel 9:ba2a0e9f:top_level",
+        "dataStreamName": "top_level",
+        "type": "derived",
+        "dataType": {
+          "name": "com.google.step_count.delta",
+          "field": [
+            {
+              "name": "steps",
+              "format": "integer"
+            }
+          ]
+        },
+        "device": {
+          "uid": "ba2a0e9f",
+          "type": "phone",
+          "version": "",
+          "model": "Pixel 9",
+          "manufacturer": "Google"
+        },
+        "application": {
+          "packageName": "com.google.android.fit"
+        },
+        "dataQualityStandard": []
+      },
+      {
+        "dataStreamId": "derived:com.google.step_count.delta:com.google.android.gms:estimated_steps",
+        "dataStreamName": "estimated_steps",
+        "type": "derived",
+        "dataType": {
+          "name": "com.google.step_count.delta",
+          "field": [
+            {
+              "name": "steps",
+              "format": "integer"
+            }
+          ]
+        },
+        "application": {
+          "packageName": "com.google.android.gms"
+        },
+        "dataQualityStandard": []
+      },
+      {
+        "dataStreamId": "derived:com.google.step_count.delta:com.google.android.gms:merge_step_deltas",
+        "dataStreamName": "merge_step_deltas",
+        "type": "derived",
+        "dataType": {
+          "name": "com.google.step_count.delta",
+          "field": [
+            {
+              "name": "steps",
+              "format": "integer"
+            }
+          ]
+        },
+        "application": {
+          "packageName": "com.google.android.gms"
+        },
+        "dataQualityStandard": []
+      },
+      {
+        "dataStreamId": "derived:com.google.weight:com.google.android.gms:merge_weight",
+        "dataStreamName": "merge_weight",
+        "type": "derived",
+        "dataType": {
+          "name": "com.google.weight",
+          "field": [
+            {
+              "name": "weight",
+              "format": "floatPoint"
+            }
+          ]
+        },
+        "application": {
+          "packageName": "com.google.android.gms"
+        },
+        "dataQualityStandard": []
+      },
+      {
+        "dataStreamId": "raw:com.google.height:com.google.android.apps.fitness:user_input",
+        "dataStreamName": "user_input",
+        "type": "raw",
+        "dataType": {
+          "name": "com.google.height",
+          "field": [
+            {
+              "name": "height",
+              "format": "floatPoint"
+            }
+          ]
+        },
+        "application": {
+          "packageName": "com.google.android.apps.fitness"
+        },
+        "dataQualityStandard": []
+      },
+      {
+        "dataStreamId": "raw:com.google.step_count.cumulative:Google:Pixel 9:ba2a0e9f:Step Counter",
+        "dataStreamName": "Step Counter",
+        "type": "raw",
+        "dataType": {
+          "name": "com.google.step_count.cumulative",
+          "field": [
+            {
+              "name": "steps",
+              "format": "integer"
+            }
+          ]
+        },
+        "device": {
+          "uid": "ba2a0e9f",
+          "type": "phone",
+          "version": "",
+          "model": "Pixel 9",
+          "manufacturer": "Google"
+        },
+        "dataQualityStandard": []
+      },
+      {
+        "dataStreamId": "raw:com.google.weight:com.google.android.apps.fitness:user_input",
+        "dataStreamName": "user_input",
+        "type": "raw",
+        "dataType": {
+          "name": "com.google.weight",
+          "field": [
+            {
+              "name": "weight",
+              "format": "floatPoint"
+            }
+          ]
+        },
+        "application": {
+          "packageName": "com.google.android.apps.fitness"
+        },
+        "dataQualityStandard": []
+      }
+    ]
+  }
+  

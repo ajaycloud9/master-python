@@ -1,0 +1,71 @@
+global:
+  smtp_from: 'connectoajay@gmail.com'
+  smtp_smarthost: smtp.gmail.com:587
+  smtp_auth_username: 'connectoajay@gmail.com'
+  smtp_auth_identity: 'connectoajay@gmail.com'
+  smtp_auth_password: 'drjqjmrqrxvwqyfz'
+
+route:
+  # fallback receiver 
+  receiver: company-admin
+  routes:
+    # Company-A.
+  - match_re:
+      app_type: (linux|windows)
+    # fallback receiver 
+    receiver: company-a-admin
+    routes:
+    # Company-A-Team-A
+    - match:
+        app_type: linux
+      # fallback receiver
+      receiver: company-a-team-a-admin
+      routes:
+      - match:
+          severity: critical
+        receiver: company-a-team-a-critical-admin
+      - match:
+          severity: warning
+        receiver: company-a-team-a-warning-admin
+    - match:
+        app_type: windows
+      # fallback receiver
+      receiver: company-a-team-b-admin
+      routes:
+      - match:
+          severity: critical
+        receiver: company-a-team-b-critical-admin
+      - match:
+          severity: warning
+        receiver: company-a-team-b-warning-admin
+  - match_re:
+      app_type: (python|go)
+    # fallback receiver for alerts coming for company-b
+    receiver: company-b-admin
+    routes: 
+    - match:
+      app_type: python
+    # fallback receiver for alerts coming for company-b-team-a
+      receiver: company-b-team-a-admin
+      routes: 
+      - match:
+          severity: critical
+        receiver: company-b-team-a-critical-admin
+      - match:
+          severity: warning
+        receiver: company-b-team-a-warning-admin
+    - match:
+      app_type: go
+      receiver: company-b-team-b-admin
+      routes: 
+      - match:
+          severity: critical
+        receiver: company-b-team-b-critical-admin
+      - match:
+          severity: warning
+        receiver: company-b-team-b-warning-admin
+
+receivers:
+- name: company-admin
+  email_configs:
+  - to: 'ajaysingh@extremenetworks.com'

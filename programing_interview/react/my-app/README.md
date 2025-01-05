@@ -1,3 +1,6 @@
+```bash
+docker run -it -p 3000:3000 -v /Users/ajaysingh/ws/master-python/programing_interview/react/my-app:/myapp ui-base
+```
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -1,4 +1,4 @@
-module example.com
+module go-fake
 
 go 1.23.1
 

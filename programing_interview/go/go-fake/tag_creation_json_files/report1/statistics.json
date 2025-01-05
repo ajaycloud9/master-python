@@ -1,0 +1,34 @@
+{
+  "HTTP Request (perfmonitor/v1/applications)" : {
+    "transaction" : "HTTP Request (perfmonitor/v1/applications)",
+    "sampleCount" : 500,
+    "errorCount" : 0,
+    "errorPct" : 0.0,
+    "meanResTime" : 239.7980000000001,
+    "medianResTime" : 188.0,
+    "minResTime" : 172.0,
+    "maxResTime" : 1201.0,
+    "pct1ResTime" : 245.90000000000003,
+    "pct2ResTime" : 550.0,
+    "pct3ResTime" : 1191.0,
+    "throughput" : 97.38994935722633,
+    "receivedKBytesPerSec" : 26.439849532528243,
+    "sentKBytesPerSec" : 86.07217203934553
+  },
+  "Total" : {
+    "transaction" : "Total",
+    "sampleCount" : 500,
+    "errorCount" : 0,
+    "errorPct" : 0.0,
+    "meanResTime" : 239.7980000000001,
+    "medianResTime" : 188.0,
+    "minResTime" : 172.0,
+    "maxResTime" : 1201.0,
+    "pct1ResTime" : 245.90000000000003,
+    "pct2ResTime" : 550.0,
+    "pct3ResTime" : 1191.0,
+    "throughput" : 97.38994935722633,
+    "receivedKBytesPerSec" : 26.439849532528243,
+    "sentKBytesPerSec" : 86.07217203934553
+  }
+}
