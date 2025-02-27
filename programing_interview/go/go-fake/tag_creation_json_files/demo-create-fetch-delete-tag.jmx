@@ -10,27 +10,35 @@
       <boolProp name="TestPlan.functional_mode">false</boolProp>
     </TestPlan>
     <hashTree>
-      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Test Fragment"/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Host =User Defined Variables">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="HOST" elementType="Argument">
+            <stringProp name="Argument.name">HOST</stringProp>
+            <stringProp name="Argument.value">10.64.13.61</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="SCALE_SET_IP_HOST" elementType="Argument">
+            <stringProp name="Argument.name">SCALE_SET_IP_HOST</stringProp>
+            <stringProp name="Argument.value">10.64.197.10</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="FUNCTIONAL_SET_IP_HOST" elementType="Argument">
+            <stringProp name="Argument.name">FUNCTIONAL_SET_IP_HOST</stringProp>
+            <stringProp name="Argument.value">10.64.13.61</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Test Fragment" enabled="true"/>
       <hashTree>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Create Tag Controller"/>
         <hashTree>
-          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CreateJsonCsvFileListing" enabled="true">
-            <stringProp name="delimiter">,</stringProp>
-            <stringProp name="fileEncoding"></stringProp>
-            <stringProp name="filename">/Users/ajaysingh/ws/master-python/programing_interview/go/go-fake/tag_creation_json_files/tag_creation_listing.csv</stringProp>
-            <boolProp name="ignoreFirstLine">false</boolProp>
-            <boolProp name="quotedData">false</boolProp>
-            <boolProp name="recycle">true</boolProp>
-            <stringProp name="shareMode">shareMode.all</stringProp>
-            <boolProp name="stopThread">false</boolProp>
-            <stringProp name="variableNames">JSON_FILE</stringProp>
-          </CSVDataSet>
-          <hashTree/>
-          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="TagCreateVariables" enabled="true">
+          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="TagCreateVariables">
             <collectionProp name="Arguments.arguments">
-              <elementProp name="create_url" elementType="Argument">
-                <stringProp name="Argument.name">create_url</stringProp>
-                <stringProp name="Argument.value">http://10.64.13.61:8084/tags</stringProp>
+              <elementProp name="PATH" elementType="Argument">
+                <stringProp name="Argument.name">PATH</stringProp>
+                <stringProp name="Argument.value">/tagging/v1/tags</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
               <elementProp name="contentType" elementType="Argument">
@@ -46,8 +54,22 @@
             </collectionProp>
           </Arguments>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request">
-            <stringProp name="HTTPSampler.path">${create_url}</stringProp>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CreateJsonCsvFileListing">
+            <stringProp name="delimiter">,</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="filename">${__P(CREATE_CSV_FILE,/Users/ajaysingh/ws/master-python/programing_interview/go/go-fake/tag_creation_json_files/tag_creation_listing.csv)}</stringProp>
+            <boolProp name="ignoreFirstLine">false</boolProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">true</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="variableNames">JSON_FILE</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TagCreate">
+            <stringProp name="HTTPSampler.domain">${HOST}</stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.path">${PATH}</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <stringProp name="HTTPSampler.method">${method}</stringProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -56,14 +78,14 @@
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">${__FileToString(/Users/ajaysingh/ws/master-python/programing_interview/go/go-fake/tag_creation_json_files/${__eval(${JSON_FILE})}.json,,)}</stringProp>
+                  <stringProp name="Argument.value">${__FileToString(${__P(BASE_PATH,/Users/ajaysingh/ws/master-python/programing_interview/go/go-fake/tag_creation_json_files)}/${__eval(${JSON_FILE})}.json,,)}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="" elementType="Header">
                   <stringProp name="Header.name">User-Agent</stringProp>
@@ -73,16 +95,20 @@
                   <stringProp name="Header.name">Content-Type</stringProp>
                   <stringProp name="Header.value">${contentType}</stringProp>
                 </elementProp>
+                <elementProp name="X-XC-ID-TOKEN" elementType="Header">
+                  <stringProp name="Header.name">X-XC-ID-TOKEN</stringProp>
+                  <stringProp name="Header.value">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsInZlciI6IjEuMCJ9.eyJpc3MiOiJodHRwczovL2V4dHJlbWVjbG91ZGlxLmNvbS9pYW0iLCJhdWQiOiJOVk8iLCJpYXQiOjE2NDYyNzYxMjgsImV4cCI6MTg0Njg4MDkyOCwic3ViIjoiMSIsInVzZXJuYW1lIjoiYWRtaW5AY3VzdDAwMS5jb20iLCJnaXZlbl9uYW1lIjoiUGF1bCIsImZhbWlseV9uYW1lIjoiSyIsImVtYWlsIjoidXNlcm5hbWVAeW91cmNvbXBhbnkuY29tIiwic291cmNlIjoiTE9DQUwiLCJ2cGMiOiJVU19FYXN0MiIsImN1c3RvbWVyIjp7ImlkIjoxLCJuYW1lIjoiQ3VzdG9tZXIgTmFtZSIsIm1vZGUiOjAsImNvdW50cnkiOiJVUyIsInNoYXJkIjoiVVMiLCJtc3BfaWQiOiJVUzpGVUhOLU45VkotR1BNQy1KRENNIn0sInJvbGVzIjpbIkFkbWluaXN0cmF0b3IiXSwicmVzb3VyY2UiOnsiY3VzdG9tZXJfaWQiOjEsIm93bmVyX2lkcyI6WzFdLCJvd25lcl91aWRzIjpbIlZITS1FVkpHUklGTiJdLCJvcmdfaWRzIjpbMF0sInNpdGVfaWRzIjpbMTAyMCwzMDcwXX19.IfKHIH-1A4vEC6Tute-zGmSpWrqhbqtTCm-hpo44CCs</stringProp>
+                </elementProp>
               </collectionProp>
             </HeaderManager>
             <hashTree/>
-            <SizeAssertion guiclass="SizeAssertionGui" testclass="SizeAssertion" testname="Create Tag Response Body Size Assertion">
+            <SizeAssertion guiclass="SizeAssertionGui" testclass="SizeAssertion" testname="Create Tag Response Body Size Assertion" enabled="false">
               <stringProp name="Assertion.test_field">SizeAssertion.response_data</stringProp>
               <stringProp name="SizeAssertion.size">7000</stringProp>
               <intProp name="SizeAssertion.operator">3</intProp>
             </SizeAssertion>
             <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion">
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="49586">200</stringProp>
               </collectionProp>
@@ -93,7 +119,13 @@
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
-          <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report">
+          <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler">
+            <boolProp name="displayJMeterProperties">true</boolProp>
+            <boolProp name="displayJMeterVariables">true</boolProp>
+            <boolProp name="displaySystemProperties">true</boolProp>
+          </DebugSampler>
+          <hashTree/>
+          <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="false">
             <boolProp name="ResultCollector.error_logging">false</boolProp>
             <objProp>
               <name>saveConfig</name>
@@ -130,7 +162,7 @@
             <stringProp name="filename"></stringProp>
           </ResultCollector>
           <hashTree/>
-          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
             <boolProp name="ResultCollector.error_logging">false</boolProp>
             <objProp>
               <name>saveConfig</name>
@@ -172,9 +204,9 @@
         <hashTree>
           <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="TagFetchVariables" enabled="true">
             <collectionProp name="Arguments.arguments">
-              <elementProp name="fetch_url" elementType="Argument">
-                <stringProp name="Argument.name">fetch_url</stringProp>
-                <stringProp name="Argument.value">http://10.64.13.61:8084/tags/:fetch</stringProp>
+              <elementProp name="FET_PATH" elementType="Argument">
+                <stringProp name="Argument.name">FET_PATH</stringProp>
+                <stringProp name="Argument.value">/tagging/v1/tags/:fetch</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
               <elementProp name="contentType" elementType="Argument">
@@ -190,8 +222,10 @@
             </collectionProp>
           </Arguments>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request">
-            <stringProp name="HTTPSampler.path">${fetch_url}</stringProp>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TagFetch" enabled="true">
+            <stringProp name="HTTPSampler.domain">${HOST}</stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.path">${FET_PATH}</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <stringProp name="HTTPSampler.method">${method}</stringProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -202,7 +236,6 @@
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.value">{&#xd;
     &quot;search&quot;: {&#xd;
-        &quot;ownerId&quot;: 5&#xd;
     }&#xd;
 }</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
@@ -221,10 +254,14 @@
                   <stringProp name="Header.name">Content-Type</stringProp>
                   <stringProp name="Header.value">${contentType}</stringProp>
                 </elementProp>
+                <elementProp name="X-XC-ID-TOKEN" elementType="Header">
+                  <stringProp name="Header.name">X-XC-ID-TOKEN</stringProp>
+                  <stringProp name="Header.value">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsInZlciI6IjEuMCJ9.eyJpc3MiOiJodHRwczovL2V4dHJlbWVjbG91ZGlxLmNvbS9pYW0iLCJhdWQiOiJOVk8iLCJpYXQiOjE2NDYyNzYxMjgsImV4cCI6MTg0Njg4MDkyOCwic3ViIjoiMSIsInVzZXJuYW1lIjoiYWRtaW5AY3VzdDAwMS5jb20iLCJnaXZlbl9uYW1lIjoiUGF1bCIsImZhbWlseV9uYW1lIjoiSyIsImVtYWlsIjoidXNlcm5hbWVAeW91cmNvbXBhbnkuY29tIiwic291cmNlIjoiTE9DQUwiLCJ2cGMiOiJVU19FYXN0MiIsImN1c3RvbWVyIjp7ImlkIjoxLCJuYW1lIjoiQ3VzdG9tZXIgTmFtZSIsIm1vZGUiOjAsImNvdW50cnkiOiJVUyIsInNoYXJkIjoiVVMiLCJtc3BfaWQiOiJVUzpGVUhOLU45VkotR1BNQy1KRENNIn0sInJvbGVzIjpbIkFkbWluaXN0cmF0b3IiXSwicmVzb3VyY2UiOnsiY3VzdG9tZXJfaWQiOjEsIm93bmVyX2lkcyI6WzFdLCJvd25lcl91aWRzIjpbIlZITS1FVkpHUklGTiJdLCJvcmdfaWRzIjpbMF0sInNpdGVfaWRzIjpbMTAyMCwzMDcwXX19.IfKHIH-1A4vEC6Tute-zGmSpWrqhbqtTCm-hpo44CCs</stringProp>
+                </elementProp>
               </collectionProp>
             </HeaderManager>
             <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion">
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="49586">200</stringProp>
               </collectionProp>
@@ -234,13 +271,13 @@
               <intProp name="Assertion.test_type">8</intProp>
             </ResponseAssertion>
             <hashTree/>
-            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor">
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="false">
               <stringProp name="JSONPostProcessor.referenceNames">ownerList</stringProp>
               <stringProp name="JSONPostProcessor.jsonPathExprs">$</stringProp>
               <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
             </JSONPostProcessor>
             <hashTree/>
-            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="JSR223 Assertion">
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="JSR223 Assertion" enabled="false">
               <stringProp name="cacheKey">true</stringProp>
               <stringProp name="filename"></stringProp>
               <stringProp name="parameters"></stringProp>
@@ -267,7 +304,7 @@ if (length != 500) {
             </JSR223Assertion>
             <hashTree/>
           </hashTree>
-          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
             <boolProp name="ResultCollector.error_logging">false</boolProp>
             <objProp>
               <name>saveConfig</name>
@@ -304,7 +341,7 @@ if (length != 500) {
             <stringProp name="filename"></stringProp>
           </ResultCollector>
           <hashTree/>
-          <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report">
+          <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="false">
             <boolProp name="ResultCollector.error_logging">false</boolProp>
             <objProp>
               <name>saveConfig</name>
@@ -340,12 +377,6 @@ if (length != 500) {
             </objProp>
             <stringProp name="filename"></stringProp>
           </ResultCollector>
-          <hashTree/>
-          <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
-            <boolProp name="displayJMeterProperties">false</boolProp>
-            <boolProp name="displayJMeterVariables">true</boolProp>
-            <boolProp name="displaySystemProperties">false</boolProp>
-          </DebugSampler>
           <hashTree/>
           <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
             <boolProp name="ResultCollector.error_logging">false</boolProp>
@@ -385,13 +416,13 @@ if (length != 500) {
           </ResultCollector>
           <hashTree/>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Delete Tag Controller" enabled="true"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Delete Tag Controller"/>
         <hashTree>
-          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="TagDeleteVariables" enabled="true">
+          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="TagDeleteVariables">
             <collectionProp name="Arguments.arguments">
-              <elementProp name="url" elementType="Argument">
-                <stringProp name="Argument.name">url</stringProp>
-                <stringProp name="Argument.value">http://10.64.13.61:8084/tags/:delete</stringProp>
+              <elementProp name="DEL_PATH" elementType="Argument">
+                <stringProp name="Argument.name">DEL_PATH</stringProp>
+                <stringProp name="Argument.value">/tagging/v1/tags/:delete</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
               <elementProp name="contentType" elementType="Argument">
@@ -407,10 +438,10 @@ if (length != 500) {
             </collectionProp>
           </Arguments>
           <hashTree/>
-          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="DeleteJsonCsvFileListing" enabled="true">
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="DeleteJsonCsvFileListing">
             <stringProp name="delimiter">,</stringProp>
             <stringProp name="fileEncoding"></stringProp>
-            <stringProp name="filename">/Users/ajaysingh/ws/master-python/programing_interview/go/go-fake/tag_deletion_json_files/tag_deletion-listing.csv</stringProp>
+            <stringProp name="filename">${__P(DELETE_CSV_FILE,/Users/ajaysingh/ws/master-python/programing_interview/go/go-fake/tag_deletion_json_files/tag_deletion-listing.csv)}</stringProp>
             <boolProp name="ignoreFirstLine">false</boolProp>
             <boolProp name="quotedData">false</boolProp>
             <boolProp name="recycle">true</boolProp>
@@ -419,8 +450,10 @@ if (length != 500) {
             <stringProp name="variableNames">JSON_FILE</stringProp>
           </CSVDataSet>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
-            <stringProp name="HTTPSampler.path">${url}</stringProp>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TagDelete">
+            <stringProp name="HTTPSampler.domain">${HOST}</stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.path">${DEL_PATH}</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <stringProp name="HTTPSampler.method">${method}</stringProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -429,7 +462,7 @@ if (length != 500) {
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">${__FileToString(/Users/ajaysingh/ws/master-python/programing_interview/go/go-fake/tag_deletion_json_files/${__eval(${JSON_FILE})}.json,,)}</stringProp>
+                  <stringProp name="Argument.value">${__FileToString(${__P(BASE_PATH,/Users/ajaysingh/ws/master-python/programing_interview/go/go-fake/tag_deletion_json_files)}/${__eval(${JSON_FILE})}.json,,)}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -446,6 +479,10 @@ if (length != 500) {
                   <stringProp name="Header.name">Content-Type</stringProp>
                   <stringProp name="Header.value">${contentType}</stringProp>
                 </elementProp>
+                <elementProp name="X-XC-ID-TOKEN" elementType="Header">
+                  <stringProp name="Header.name">X-XC-ID-TOKEN</stringProp>
+                  <stringProp name="Header.value">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsInZlciI6IjEuMCJ9.eyJpc3MiOiJodHRwczovL2V4dHJlbWVjbG91ZGlxLmNvbS9pYW0iLCJhdWQiOiJOVk8iLCJpYXQiOjE2NDYyNzYxMjgsImV4cCI6MTg0Njg4MDkyOCwic3ViIjoiMSIsInVzZXJuYW1lIjoiYWRtaW5AY3VzdDAwMS5jb20iLCJnaXZlbl9uYW1lIjoiUGF1bCIsImZhbWlseV9uYW1lIjoiSyIsImVtYWlsIjoidXNlcm5hbWVAeW91cmNvbXBhbnkuY29tIiwic291cmNlIjoiTE9DQUwiLCJ2cGMiOiJVU19FYXN0MiIsImN1c3RvbWVyIjp7ImlkIjoxLCJuYW1lIjoiQ3VzdG9tZXIgTmFtZSIsIm1vZGUiOjAsImNvdW50cnkiOiJVUyIsInNoYXJkIjoiVVMiLCJtc3BfaWQiOiJVUzpGVUhOLU45VkotR1BNQy1KRENNIn0sInJvbGVzIjpbIkFkbWluaXN0cmF0b3IiXSwicmVzb3VyY2UiOnsiY3VzdG9tZXJfaWQiOjEsIm93bmVyX2lkcyI6WzFdLCJvd25lcl91aWRzIjpbIlZITS1FVkpHUklGTiJdLCJvcmdfaWRzIjpbMF0sInNpdGVfaWRzIjpbMTAyMCwzMDcwXX19.IfKHIH-1A4vEC6Tute-zGmSpWrqhbqtTCm-hpo44CCs</stringProp>
+                </elementProp>
               </collectionProp>
             </HeaderManager>
             <hashTree/>
@@ -460,7 +497,7 @@ if (length != 500) {
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
-          <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+          <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="false">
             <boolProp name="ResultCollector.error_logging">false</boolProp>
             <objProp>
               <name>saveConfig</name>
@@ -497,7 +534,7 @@ if (length != 500) {
             <stringProp name="filename"></stringProp>
           </ResultCollector>
           <hashTree/>
-          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
             <boolProp name="ResultCollector.error_logging">false</boolProp>
             <objProp>
               <name>saveConfig</name>
@@ -534,26 +571,26 @@ if (length != 500) {
             <stringProp name="filename"></stringProp>
           </ResultCollector>
           <hashTree/>
-          <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="false">
-            <boolProp name="displayJMeterProperties">false</boolProp>
+          <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler">
+            <boolProp name="displayJMeterProperties">true</boolProp>
             <boolProp name="displayJMeterVariables">true</boolProp>
-            <boolProp name="displaySystemProperties">false</boolProp>
+            <boolProp name="displaySystemProperties">true</boolProp>
           </DebugSampler>
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Create Tag Thread Group" enabled="true">
-        <intProp name="ThreadGroup.num_threads">5</intProp>
-        <intProp name="ThreadGroup.ramp_time">5</intProp>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Create Tag Thread Group">
+        <intProp name="ThreadGroup.num_threads">1</intProp>
+        <intProp name="ThreadGroup.ramp_time">1</intProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
-          <stringProp name="LoopController.loops">2</stringProp>
+          <stringProp name="LoopController.loops">1</stringProp>
           <boolProp name="LoopController.continue_forever">false</boolProp>
         </elementProp>
       </ThreadGroup>
       <hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Simple Controller" enabled="true"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Simple Controller"/>
         <hashTree>
           <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="Create-Tag Module Controller">
             <collectionProp name="ModuleController.node_path">
@@ -566,9 +603,10 @@ if (length != 500) {
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Fetch Tag Thread Group" enabled="true">
-        <intProp name="ThreadGroup.num_threads">5</intProp>
-        <intProp name="ThreadGroup.ramp_time">5</intProp>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Fetch Tag Thread Group">
+        <intProp name="ThreadGroup.num_threads">1</intProp>
+        <intProp name="ThreadGroup.ramp_time">1</intProp>
+        <longProp name="ThreadGroup.duration">600</longProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
@@ -577,9 +615,11 @@ if (length != 500) {
         </elementProp>
       </ThreadGroup>
       <hashTree>
-        <RunTime guiclass="RunTimeGui" testclass="RunTime" testname="Runtime Controller" enabled="true">
+        <RunTime guiclass="RunTimeGui" testclass="RunTime" testname="Runtime Controller" enabled="false">
           <stringProp name="RunTime.seconds">3</stringProp>
         </RunTime>
+        <hashTree/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Simple Controller" enabled="true"/>
         <hashTree>
           <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="Module Controller" enabled="true">
             <collectionProp name="ModuleController.node_path">
@@ -592,18 +632,18 @@ if (length != 500) {
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Delete Thread Group" enabled="true">
-        <intProp name="ThreadGroup.num_threads">5</intProp>
-        <intProp name="ThreadGroup.ramp_time">5</intProp>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Delete Thread Group">
+        <intProp name="ThreadGroup.num_threads">1</intProp>
+        <intProp name="ThreadGroup.ramp_time">1</intProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
-          <stringProp name="LoopController.loops">2</stringProp>
+          <stringProp name="LoopController.loops">1</stringProp>
           <boolProp name="LoopController.continue_forever">false</boolProp>
         </elementProp>
       </ThreadGroup>
       <hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Simple Controller" enabled="true"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Simple Controller"/>
         <hashTree>
           <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="Delete-Tag Module Controller" enabled="true">
             <collectionProp name="ModuleController.node_path">
@@ -653,7 +693,7 @@ if (length != 500) {
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+      <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -690,7 +730,44 @@ if (length != 500) {
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="RespTimeGraphVisualizer" testclass="ResultCollector" testname="Response Time Graph" enabled="false">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
