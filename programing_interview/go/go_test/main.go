@@ -1,6 +1,11 @@
-package main
+package go_test
 
-// Add returns the sum of two integers.
-func Add(a, b int) int {
-	return a + b
+import "fmt"
+
+func Hello(name string) string {
+	return "Hello " + name
+}
+
+func main() {
+	fmt.Println(Hello("world"))
 }
