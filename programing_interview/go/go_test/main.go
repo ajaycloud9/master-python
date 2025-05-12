@@ -1,11 +1,11 @@
 package go_test
 
-import "fmt"
+const englishHello = "Hello, "
 
 func Hello(name string) string {
-	return "Hello " + name
-}
 
-func main() {
-	fmt.Println(Hello("world"))
+	if name == "" {
+		name = "world"
+	}
+	return englishHello + name
 }
